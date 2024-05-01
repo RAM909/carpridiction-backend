@@ -4,17 +4,17 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 from flask_cors import CORS
-import pickle
 import pandas as pd
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
 # Load machine learning models
-ada_model = pickle.load(open('adaboost.pkl', 'rb'))
+
 rf_model = pickle.load(open('randomforest.pkl', 'rb'))
-bg_model = pickle.load(open('bagging.pkl', 'rb'))
-adt_model = pickle.load(open('adadt.pkl', 'rb'))
+# ada_model = pickle.load(open('adaboost.pkl', 'rb'))
+# bg_model = pickle.load(open('bagging.pkl', 'rb'))
+# adt_model = pickle.load(open('adadt.pkl', 'rb'))
 
 @app.route('/predict', methods=['POST'])
 def predict():
